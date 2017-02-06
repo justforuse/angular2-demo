@@ -6,7 +6,8 @@
         <div class="form-group">
             <label for="name">Name</label>
             <!--don't forget the name attribute-->
-            <input type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" required>
+            <input #spy type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" required>
+            remove: {{spy.className}}
         </div>
         <div class="form-group">
             <label for="alterEgo">Alter Ego</label>
@@ -25,4 +26,10 @@
 
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
+
+    <!--Not important-->
+    <!--<div class="form-group">
+        <input type="text" class="form-control" [ngModel] = "test.value" (ngModelChange) = "test.value = $event" name = "value">
+        Ignore this {{test.value}}
+    </div>-->
 </div>
