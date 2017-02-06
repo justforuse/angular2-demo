@@ -23,4 +23,8 @@ export class HeroFromComponent {
     get diagnostic() {
         return JSON.stringify(this.model);
     }
+
+    newHero(){
+        this.model = new Hero(42, "", "");
+    }
 }

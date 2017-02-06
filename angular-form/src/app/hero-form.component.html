@@ -1,13 +1,16 @@
 
 {{diagnostic}}
-<div class="container">
+{{submitted}}
+<div class="container" [hidden]="submitted">
     <h1>Hero Form</h1>
-    <form action="">
+    <form novalidate #heroForm="ngForm"  (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="name">Name</label>
             <!--don't forget the name attribute-->
-            <input #spy type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" required>
-            remove: {{spy.className}}
+            <input #name="ngModel" type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" required>
+            <div class="alert alert-danger" [hidden]= "name.valid || name.pristine">
+                Name is required
+            </div>
         </div>
         <div class="form-group">
             <label for="alterEgo">Alter Ego</label>
@@ -24,7 +27,9 @@
         </div>
 
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" [disabled] = "heroForm.form.invalid">Submit</button>
+        <!--type="button" is nessary, if not , will fire submit button event-->
+        <button type="button" class="btn btn-default" (click) = "newHero(); heroForm.reset()">New Hero</button>
     </form>
 
     <!--Not important-->
@@ -32,4 +37,22 @@
         <input type="text" class="form-control" [ngModel] = "test.value" (ngModelChange) = "test.value = $event" name = "value">
         Ignore this {{test.value}}
     </div>-->
+</div>
+
+<div class="container" [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+        <div class="col-xs-3">Name</div>
+        <div class="col-xs-9 pull-left">{{model.name}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">AlterEgo</div>
+        <div class="col-xs-9 pull-left">{{model.alterEgo}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Power</div>
+        <div class="col-xs-9 pull-left">{{model.power}}</div>
+    </div>
+
+    <button class="btn btn-default" (click)="submitted=false;">Edit</button>
 </div>
