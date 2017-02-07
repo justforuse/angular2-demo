@@ -1,0 +1,15 @@
+<p class='green' [class]='classValue'>class roperty</p>
+
+<p class='green' [class.red]='isRed'>class.red Property</p>
+
+<p [style.color]='isRed ? "red" : "green"'>style.color</p>
+
+<p [style.font-size.em]='isLarge ? "3" : "1"' [style.width.%]='isLarge ? "100" : "30"'> font-size.px</p>
+
+<p [ngClass]="{red: isRed, large:isLarge}">ngClass</p>
+
+<ul [ngSwitch]="switchValue">
+    <li *ngSwitchCase="'value1'">value1</li>
+    <li *ngSwitchCase="'value2'">value2</li>
+    <li *ngSwitchDefault>default</li>
+</ul>
