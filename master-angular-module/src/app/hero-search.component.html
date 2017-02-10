@@ -1,0 +1,10 @@
+<div id="search-component">
+    <h4>Hero Search</h4>
+    <input id="search-box" type="text" #searchBox (keyup)="search(searchBox.value)">
+    <div>
+        <!--heroes is an Observable object, use async pipe to generate an array-->
+        <div *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)">
+            {{hero.name}}
+        </div>
+    </div>
+</div>
