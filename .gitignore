@@ -4,3 +4,6 @@ node_modules
 */.vscode
 node_modules.rar
 */node_modules.rar
+
+.idea
+*/.idea

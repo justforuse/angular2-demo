@@ -8,10 +8,10 @@ import {Hero} from './hero';
 
 @Injectable()
 export class HeroSearchService {
-    private http:Http;
-    constructor() { }
-    search(term:string){
-        return this.http.get(`app/heroes/?name=${name}`)
+
+    constructor(private http:Http) { }
+    search(term:string):Observable<Hero[]>{
+        return this.http.get(`app/heroes/?name=${term}`)
             .map((r:Response) => r.json().data as Hero[]);
     }
 }

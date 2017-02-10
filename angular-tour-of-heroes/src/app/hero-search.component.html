@@ -2,7 +2,7 @@
     <h4>Hero Search</h4>
     <input id="search-box" type="text" #searchBox (keyup)="search(searchBox.value)">
     <div>
-        <div *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)">
+        <div *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)" class="search-result">
             {{hero.name}}
         </div>
     </div>
