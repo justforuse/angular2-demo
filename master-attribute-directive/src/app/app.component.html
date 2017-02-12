@@ -1,0 +1,8 @@
+<div>
+    <input type="radio" name="colors" (click)="color='lightgreen'">Green
+    <input type="radio" name="colors" (click)="color='yellow'">Yellow
+    <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+
+<h1 [myHighlight] = 'color' [defaultColor]="'violet'">Hello Angular with default</h1>
+<h1 [myHighlight] = 'color' [defaultColor]>Hello Angular</h1>
