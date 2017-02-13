@@ -1,0 +1,13 @@
+<date1></date1>
+{{2 | exponential : 5}}
+
+<li *ngFor="let hero of (heroes)">
+    {{hero | json}}
+</li>
+<ul>
+    <li *ngFor="let hero of (heroes | canFlyImpure)">
+        {{hero.name}}
+    </li>
+    <input type="text" #hero>
+    <button type="button" (click)="addHero(hero.value)">Add</button>
+</ul>
