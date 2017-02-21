@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 
+
+import { AppComponent } from './app.component';
+import {CrisisListComponent} from './crisis-center/crisis-center.component';
+import {HeroListComponent} from './heroes/heroes.component';
 const appRoutes: Routes = [
-    {
-        path: "hero/:id",
-        component: HeroDetailComponent
-    },
+    // {
+    //     path: "hero/:id",
+    //     component: HeroDetailComponent
+    // },
     {
         path: "crisis-center",
         component: CrisisListComponent
@@ -22,12 +25,12 @@ const appRoutes: Routes = [
     },
     {
         path: "",
-        component: HomeComponent
+        component: CrisisListComponent
     },
-    {
-        path: "**",
-        component: PageNotFountComponent
-    }
+    // {
+    //     path: "**",
+    //     component: PageNotFountComponent
+    // }
 ];
 
 @NgModule({
@@ -38,11 +41,8 @@ const appRoutes: Routes = [
     ],
     declarations: [
         AppComponent,
-        HeroDetailComponent,
         CrisisListComponent,
         HeroListComponent,
-        HomeComponent,
-        PageNotFountComponent
     ],
     bootstrap: [AppComponent]
 })
