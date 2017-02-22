@@ -1,48 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import {CrisisListComponent} from './crisis-center/crisis-center.component';
-import {HeroListComponent} from './heroes/heroes.component';
-const appRoutes: Routes = [
-    // {
-    //     path: "hero/:id",
-    //     component: HeroDetailComponent
-    // },
-    {
-        path: "crisis-center",
-        component: CrisisListComponent
-    },
-    {
-        path: "heroes",
-        component: HeroListComponent,
-        data: {
-            title: "Heroes List"
-        }
-    },
-    {
-        path: "",
-        component: CrisisListComponent
-    },
-    // {
-    //     path: "**",
-    //     component: PageNotFountComponent
-    // }
-];
+
+
+import {AppRoutingModule} from './app-routing.module';
+import {HeroModule} from './heroes/heroes.module';
+import {CrisisCenterModule} from './crisis-center/crisis-center.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
-        RouterModule.forRoot(appRoutes)
+        AppRoutingModule,
+        HeroModule,
+        CrisisCenterModule
     ],
     declarations: [
-        AppComponent,
-        CrisisListComponent,
-        HeroListComponent,
+        AppComponent
     ],
     bootstrap: [AppComponent]
 })

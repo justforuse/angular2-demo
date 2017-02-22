@@ -1,0 +1,10 @@
+nav a{
+    background-color: #adb2ad;
+    padding:3px;
+    text-decoration: none;
+    color:grey;
+}
+nav a.active{
+    background-color: #adb2ad ;
+    color:cornflowerblue;
+}

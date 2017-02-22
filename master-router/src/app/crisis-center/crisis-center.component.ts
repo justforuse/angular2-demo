@@ -1,29 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Crisis} from "./crisis.service";
 @Component({
     moduleId: module.id,
     selector: 'crisis-center',
-    template:`<ul>
-    <li *ngFor="let item of crises">
-        <span>{{item.id}}, {{item.name}}</span>
-    </li>
-</ul>`
+    template: `<h2>危机中心</h2>
+<router-outlet></router-outlet>`
 })
-export class CrisisListComponent implements OnInit {
+export class CrisisCenterComponent implements OnInit {
     crises:Crisis[];
-    constructor() { }
+
+    constructor() {
+    }
 
     ngOnInit() {
-        this.crises = [
-            {
-                id:1,
-                name:"火灾"
-            },
-            {
-                id:2,
-                name:"水灾"
-            }
-        ]
+
     }
-    
+
 }
