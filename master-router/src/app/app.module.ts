@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HeroModule} from './heroes/heroes.module';
 import {CrisisCenterModule} from './crisis-center/crisis-center.module';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import {CrisisCenterModule} from './crisis-center/crisis-center.module';
         FormsModule,
         AppRoutingModule,
         HeroModule,
-        CrisisCenterModule
+        CrisisCenterModule,
+        AdminModule
     ],
     declarations: [
         AppComponent
