@@ -2,44 +2,65 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
 import {Crisis, CrisisService} from "./crisis.service";
-
+import {DialogService} from '../dialog.service';
 
 import 'rxjs/add/operator/switchMap';
 @Component({
-    moduleId:module.id,
-    template:`<div *ngIf="crisis">
+    moduleId: module.id,
+    template: `<div *ngIf="crisis">
     <div>
         id:{{crisis.id}}
     </div>
     <div>
-        内容: <input #crisisName [ngModel]="crisis.name">
+        内容: <input #crisisName [(ngModel)]="editName">
     </div>
-    <button (click)="saveCrisis(crisis.id, crisisName.value)">保存</button>
+    <button (click)="saveCrisis()">保存</button>
     <button (click)="cancel()">取消</button>
 </div>`
 })
 
-export class CrisisDetailComponent implements OnInit{
+export class CrisisDetailComponent implements OnInit {
     crisis:Crisis;
+    editName:string;
+
     constructor(private service:CrisisService,
-    private route:ActivatedRoute,
-    private router:Router){
+                private route:ActivatedRoute,
+                private router:Router,
+    private dialogService:DialogService) {
 
     }
 
-    gotoCrises(){
+    canDeactivate():Promise<boolean> | boolean{
+        if(!this.crisis || this.crisis.name == this.editName){
+            return true;
+        }
+        return this.dialogService.confirm();
+    }
+    gotoCrises() {
 
     }
-    ngOnInit(){
+
+    ngOnInit() {
         this.route.params
             .switchMap((params:Params) =>this.service.getCrisis(+params['id']))
-            .subscribe((crisis:Crisis) => this.crisis = crisis)
+            .subscribe((crisis:Crisis) => {
+                this.editName = crisis.name;
+                this.crisis = crisis;
+            });
+        // this.route.data
+        //     .subscribe((data:{crisis:Crisis}) => {
+        //         this.editName = data.crisis.name;
+        //         this.crisis = data.crisis;
+        //     })
     }
-    cancel(){
-        let crisisId = this.crisis? this.crisis.id : null;
-        this.router.navigate(['../', {id:crisisId}]);
+
+    cancel() {
+        let crisisId = this.crisis ? this.crisis.id : null;
+        this.router.navigate(['../', {id: crisisId}]);
     }
-    saveCrisis(id:number, name:string){
-        console.log(id, name);
+
+    saveCrisis() {
+        this.crisis.name = this.editName;
+        this.gotoCrises();
     }
 }

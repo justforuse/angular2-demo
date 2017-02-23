@@ -10,10 +10,11 @@ const adminRoutes: Routes = [
 	{
 		path: 'admin',
 		component: AdminComponent,
-		canActivate:[AuthGuard],
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: "",
+				canActivateChild:[AuthGuard],
 				children: [
 					{
 						path: "crises",
@@ -41,6 +42,9 @@ const adminRoutes: Routes = [
 	],
 	exports: [
 		RouterModule
+	],
+	providers:[
+		AuthGuard
 	]
 
 })
