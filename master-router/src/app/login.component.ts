@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit{
 	message:string;
 
 	constructor(public authService:AuthService, public router:Router){
-		this.setMessaeg();
+		this.setMessage();
 	}
 	setMessage(){
 		this.message = "状态:" + (this.authService.isLoggedIn? "在线": "离线");

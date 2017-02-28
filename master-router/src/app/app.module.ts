@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-
+import {DialogService} from './dialog.service';
 
 import {AppRoutingModule} from './app-routing.module';
 import {HeroModule} from './heroes/heroes.module';
 import {CrisisCenterModule} from './crisis-center/crisis-center.module';
 import {AdminModule} from './admin/admin.module';
+import {LoginRoutingModule} from './login-routing.module';
+import {LoginComponent} from './login.component';
 
 @NgModule({
     imports: [
@@ -18,10 +20,15 @@ import {AdminModule} from './admin/admin.module';
         AppRoutingModule,
         HeroModule,
         CrisisCenterModule,
-        AdminModule
+        AdminModule,
+        LoginRoutingModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent
+    ],
+    providers:[
+        DialogService
     ],
     bootstrap: [AppComponent]
 })
