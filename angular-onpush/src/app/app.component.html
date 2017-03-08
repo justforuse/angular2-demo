@@ -1,0 +1,15 @@
+<input type="text" #add>
+<button (click)="addTodo(add.value)">Add</button>
+<button (click)="changeTodos(add.value)">Change obj</button>
+<ul>
+  <todo-list-immutable [todos]="todos">
+    <p>Immutable</p>
+  </todo-list-immutable>
+</ul>
+
+
+<ul>
+  <todo-list [todos]="todos">
+    <p>Mutable</p>
+  </todo-list>
+</ul>
