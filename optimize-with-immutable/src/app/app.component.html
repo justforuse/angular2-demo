@@ -1,0 +1,5 @@
+<minesweeper [game]="game" #minesweeper></minesweeper>
+<ul class="actions">
+  <li><a (click)="startNewGame()">New game</a></li>
+  <li><a (click)="minesweeper.undo()" [hidden]="!minesweeper.canUndo()">Undo</a></li>
+</ul>

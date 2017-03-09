@@ -6,7 +6,7 @@ import {CrisisListComponent} from "./crisis-list.component";
 import {CrisisDetailComponent} from "./crisis-detail.component";
 import {CrisisCenterHomeComponent} from "./crisis-center-home.component";
 
-
+import {NotFoundComponent} from '../not-found.component'
 import {CanDeactivateGuard} from '../can-deactivate-guard.service';
 const crisisCenterRoutes:Routes = [
     {
@@ -14,6 +14,7 @@ const crisisCenterRoutes:Routes = [
         redirectTo:'crisis-center',
         pathMatch:'full'
     },
+
     {
         path:"crisis-center",
         component:CrisisCenterComponent,
