@@ -20,7 +20,7 @@ export class AppComponent {
     console.log(lang);
     this.translate.use(lang);
   }
-  toggleLang() {
+  getLang() {
     console.log(this.translate.getBrowserLang());
     console.log(this.translate.getBrowserCultureLang());
   }
