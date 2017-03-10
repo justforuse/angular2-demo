@@ -9,11 +9,11 @@ export class AppComponent {
   title = 'welcome';
 
   constructor(private translate: TranslateService) {
-    translate.addLangs(['zh-CN', 'aa']);
+    translate.addLangs(['zh-CN', 'en']);
     translate.setDefaultLang('zh-CN');
 
     let broswerLang = translate.getBrowserLang();
-    translate.use(broswerLang.match(/aa|zh-CN/) ? broswerLang : 'zh-CN');
+    translate.use(broswerLang.match(/en|zh-CN/) ? broswerLang : 'zh-CN');
   }
 
   changeLang(lang) {
