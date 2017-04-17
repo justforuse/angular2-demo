@@ -1,0 +1,16 @@
+<h1>
+    {{'this is title' | titlecase}}
+</h1>
+<div *ngIf="users.length > 0; else empty">
+    <ul>
+        <li *ngFor="let user of users; count as totalCount; index as i;">
+            User {{i}} of {{totalCount}}
+        </li>
+    </ul>
+</div>
+<ng-template #empty>
+    There is no user
+</ng-template>
+<button (click)="addUser();">Add</button>
+<button (click)="deleteUser();">Delete</button>
+
